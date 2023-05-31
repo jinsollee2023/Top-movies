@@ -14,9 +14,10 @@ const renderMovieCards = function (movies) {
       original_title: title,
       vote_average: star,
       overview: desc,
+      id = id,
     } = movie;
 
-    let tempHtml = `<div class="movieCard">
+    let tempHtml = `<div class="movieCard" onclick='showId(${id})'>
                         <div class="imgBox"><img src="https://image.tmdb.org/t/p/original/${image}"></div>
                         <div class="movieInfo">
                             <p>${title}</p>
@@ -27,6 +28,11 @@ const renderMovieCards = function (movies) {
     cardContainer.insertAdjacentHTML("beforeend", tempHtml);
   });
 };
+
+const showId = function (keyword) {
+  alert("Movie ID: " + keyword);
+};
+
 //영화 정보 가져오기
 let fetchMovieData = function () {
   const options = {
@@ -75,3 +81,5 @@ searchButton.addEventListener("click", function (event) {
 
   searchMovie(searchItem);
 });
+
+//1. 카드의 영화 id 담기
