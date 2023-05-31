@@ -4,14 +4,37 @@ body {
 }
 
 .topImage {
-  height: 80vh;
+  height: 100vh;
 
   display: flex;
   align-items: center;
+
+  background-image: url("https://hasproearplugs.com/wp-content/uploads/2021/07/people-s-emotions-cinema1-1024x683.jpg");
+  background-size: cover;
 }
 
 .title-container {
   margin-left: 10vw;
+}
+
+.title-container > input {
+  width: 200px;
+  height: 30px;
+  border-radius: 120px;
+  border: 0 solid black;
+}
+
+.title-container > button {
+  height: 40px;
+  width: 40px;
+  border-radius: 120px;
+  color: white;
+  background-color: transparent;
+  border: 0 solid black;
+}
+
+.title-container > button:hover {
+  cursor: pointer;
 }
 
 .title-container > h1 {
@@ -27,11 +50,15 @@ body {
 }
 
 .movieCard {
-  background-color: pink;
+  background-color: rgba(255, 0, 0, 0.5);
   width: 350px;
   height: 500px;
   border-radius: 10px;
   overflow: scroll;
+}
+
+.movieCard:hover {
+  cursor: pointer;
 }
 
 .imgBox {
@@ -51,8 +78,13 @@ body {
   flex-direction: row;
   justify-content: space-between;
   margin: 0px 20px 0px 20px;
+
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .movieDesc {
   margin: 0px 20px 20px 20px;
+  font-weight: 300;
+  font-size: 18px;
 }

@@ -21,7 +21,7 @@ const renderMovieCards = function (movies) {
                         <div class="imgBox"><img src="https://image.tmdb.org/t/p/original/${image}"></div>
                         <div class="movieInfo">
                             <p>${title}</p>
-                            <p>⭐️${star}</p>
+                            <p>⭐️  ${star}</p>
                         </div>
                         <div class="movieDesc"><p>${desc}</p></div>
                         </div>`;
