@@ -82,4 +82,9 @@ searchButton.addEventListener("click", function (event) {
   searchMovie(searchItem);
 });
 
-//1. 카드의 영화 id 담기
+//엔터키로 검색하기
+document.getElementById("search-text").addEventListener("keyup", function (e) {
+  if (e.code === "Enter") {
+    document.getElementById("search-btn").click();
+  }
+});
