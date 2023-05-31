@@ -33,13 +33,41 @@ body {
   border: 0 solid black;
 }
 
-.title-container > button:hover {
-  cursor: pointer;
-}
-
 .title-container > h1 {
   font-size: 80px;
   font-weight: 800;
+}
+
+.scroll-btn-div {
+  margin: 75vh auto 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll-btn-div > button {
+  color: white;
+  background-color: transparent;
+  border: 0 solid black;
+
+  animation-name: demo;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate; /*애니메이션이 자연스럽게 왔다갔다 반복함*/
+}
+
+@keyframes demo {
+  from {
+    transform: translateY(50%);
+  }
+  to {
+    transform: translateY(75%);
+  }
+}
+
+.scroll-btn-div > button:hover {
+  font-size: 17px;
+  animation-play-state: paused;
 }
 
 .card-container {
@@ -87,4 +115,19 @@ body {
   margin: 0px 20px 20px 20px;
   font-weight: 300;
   font-size: 18px;
+}
+
+.top-btn {
+  margin-left: 93%;
+  margin-bottom: 3%;
+}
+
+.top-btn > button {
+  color: white;
+  background-color: transparent;
+  border: 0 solid black;
+}
+
+button:hover {
+  cursor: pointer;
 }

@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <div class="topImage">
+    <div class="topImage" id="topImage">
       <div class="title-container">
         <h1>
           Let's<br />
@@ -28,11 +28,17 @@
           placeholder="   영화 제목을 입력해주세요!"
           autofocus
         />
-        <button id="search-btn">
+        <button id="search-btn" onclick="goToScroll()">
           <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
         </button>
       </div>
+      <div class="scroll-btn-div">
+        <button id="scroll-btn" onclick="goToScroll()">
+          <i class="fa-solid fa-chevron-down fa-3x"></i>
+        </button>
+      </div>
     </div>
+
     <div class="card-container" id="card-container">
       <div class="movieCard" id="movie-card">
         <div class="imgBox"><img /></div>
@@ -42,6 +48,11 @@
         </div>
         <div class="movieDesc"><p></p></div>
       </div>
+    </div>
+    <div class="top-btn">
+      <button id="scroll-btn-top" onclick="goToScrollTop()">
+        <i class="fa-solid fa-arrow-up fa-3x"></i>
+      </button>
     </div>
   </body>
   <script src="./modules/main2.js"></script>

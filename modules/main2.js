@@ -88,3 +88,14 @@ document.getElementById("search-text").addEventListener("keyup", function (e) {
     document.getElementById("search-btn").click();
   }
 });
+
+//버튼 클릭시 카드 컨테이너로 이동
+const goToScroll = function () {
+  const location = document.querySelector("#card-container").offsetTop;
+  window.scrollTo({ top: location, behavior: "smooth" });
+};
+
+const goToScrollTop = function () {
+  const location = document.querySelector("#topImage").offsetTop;
+  window.scrollTo({ top: location, behavior: "smooth" });
+};
