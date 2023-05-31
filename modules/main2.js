@@ -1,5 +1,6 @@
 let movies;
 let cardContainer;
+let filteredMovie;
 
 const clearCardContainer = function () {
   while (cardContainer.firstChild) {
@@ -63,23 +64,31 @@ fetchMovieData();
 
 //2. 담아온 데이터와 영화 제목 비교
 const searchMovie = function (keyword) {
-  const filteredMovie = movies.filter(function (movie) {
+  filteredMovie = movies.filter(function (movie) {
     const movieTitle = movie.original_title.toLowerCase();
 
     return movieTitle.includes(keyword);
   });
   //3. 비교된 데이터 리스트로 보여주기
-
-  clearCardContainer();
-  renderMovieCards(filteredMovie);
+  if (filteredMovie.length === 0) {
+    alert("일치하는 영화 제목이 없습니다!");
+    location.reload();
+  } else {
+    clearCardContainer();
+    renderMovieCards(filteredMovie);
+  }
 };
 
 //1. 버튼 클릭시 함수 실행 -> 인풋창 데이터 담아오기
 const searchButton = document.querySelector("#search-btn");
 searchButton.addEventListener("click", function (event) {
   let searchItem = document.querySelector("#search-text").value.toLowerCase(); //인풋창 밸류 담아오기 ok
-
-  searchMovie(searchItem);
+  if (searchItem.length === 0) {
+    alert("영화 제목이 입력되지 않았습니다!");
+    location.reload();
+  } else {
+    searchMovie(searchItem);
+  }
 });
 
 //엔터키로 검색하기
@@ -91,6 +100,11 @@ document.getElementById("search-text").addEventListener("keyup", function (e) {
 
 //버튼 클릭시 카드 컨테이너로 이동
 const goToScroll = function () {
+  let searchItem = document.querySelector("#search-text").value.toLowerCase(); //인풋창 밸류 담아오기 ok
+  console.log(filteredMovie);
+  if (searchItem.length === 0) return;
+  else if (filteredMovie?.length === 0) return;
+
   const location = document.querySelector("#card-container").offsetTop;
   window.scrollTo({ top: location, behavior: "smooth" });
 };
