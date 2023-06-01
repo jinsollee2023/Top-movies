@@ -2,6 +2,8 @@ let movies;
 let cardContainer;
 let filteredMovie;
 
+history.scrollRestoration = "manual";
+
 const clearCardContainer = function () {
   while (cardContainer.firstChild) {
     cardContainer.removeChild(cardContainer.firstChild);
@@ -72,10 +74,12 @@ const searchMovie = function (keyword) {
   //3. 비교된 데이터 리스트로 보여주기
   if (filteredMovie.length === 0) {
     alert("일치하는 영화 제목이 없습니다!");
+    filteredMovie = [];
     location.reload();
   } else {
     clearCardContainer();
     renderMovieCards(filteredMovie);
+    goToScroll();
   }
 };
 
@@ -100,16 +104,16 @@ document.getElementById("search-text").addEventListener("keyup", function (e) {
 
 //버튼 클릭시 카드 컨테이너로 이동
 const goToScroll = function () {
-  let searchItem = document.querySelector("#search-text").value.toLowerCase(); //인풋창 밸류 담아오기 ok
-  console.log(filteredMovie);
-  if (searchItem.length === 0) return;
-  else if (filteredMovie?.length === 0) return;
-
   const location = document.querySelector("#card-container").offsetTop;
   window.scrollTo({ top: location, behavior: "smooth" });
 };
 
 const goToScrollTop = function () {
   const location = document.querySelector("#topImage").offsetTop;
+  window.scrollTo({ top: location, behavior: "smooth" });
+};
+
+const goToBottom = function () {
+  const location = document.querySelector("#card-container").offsetTop;
   window.scrollTo({ top: location, behavior: "smooth" });
 };
