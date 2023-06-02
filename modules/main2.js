@@ -2,7 +2,7 @@ let movies;
 let cardContainer;
 let filteredMovie;
 
-history.scrollRestoration = "manual";
+history.scrollRestoration = "manaual";
 
 const clearCardContainer = function () {
   while (cardContainer.firstChild) {
@@ -110,10 +110,5 @@ const goToScroll = function () {
 
 const goToScrollTop = function () {
   const location = document.querySelector("#topImage").offsetTop;
-  window.scrollTo({ top: location, behavior: "smooth" });
-};
-
-const goToBottom = function () {
-  const location = document.querySelector("#card-container").offsetTop;
   window.scrollTo({ top: location, behavior: "smooth" });
 };
